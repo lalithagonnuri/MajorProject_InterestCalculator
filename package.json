@@ -12,5 +12,8 @@
   "type": "commonjs",
   "devDependencies": {
     "cypress": "^15.2.0"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
   }
 }
