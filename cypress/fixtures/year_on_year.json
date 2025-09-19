@@ -1,0 +1,20 @@
+[
+  {
+    "Year": "2025",
+    "Principal(A)": "₹ 8,07,191",
+    "Interest(B)": "₹ 69,644",
+    "Taxes, Home Insurance & Maintenance (C)": "₹ 12,500",
+    "Total Payment(A + B + C)": "₹ 8,89,335",
+    "Balance": "₹ 16,92,809",
+    "Loan Paid To Date": "32.29%"
+  },
+  {
+    "Year": "2026",
+    "Principal(A)": "₹ 16,92,809",
+    "Interest(B)": "₹ 60,861",
+    "Taxes, Home Insurance & Maintenance (C)": "₹ 25,000",
+    "Total Payment(A + B + C)": "₹ 17,78,670",
+    "Balance": "₹ 0",
+    "Loan Paid To Date": "100%"
+  }
+]

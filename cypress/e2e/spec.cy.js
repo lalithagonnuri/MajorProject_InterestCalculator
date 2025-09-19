@@ -17,6 +17,9 @@ describe('EMI Calculator Automation Suite', () => {
   it('Home Loan Emi Cal---Extract Yearly Data to Excel', function(){
     HomeLoan.navigateToHomeLoanPage();
     HomeLoan.fillDetails(this.homeData.price,this.homeData.margin,this.homeData.amount, this.homeData.interestRate, this.homeData.loanTenure,this.homeData.fee);
-  
+    HomeLoan.getYearlyEMIData();
+    cy.fixture('year_on_year.json').then((data) => {
+      cy.task('writeExcel', data);
+    });
   })
 });
