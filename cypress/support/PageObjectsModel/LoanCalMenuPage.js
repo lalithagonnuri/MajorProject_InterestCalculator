@@ -119,6 +119,10 @@ class LoanCalMenuPage{
         this.getTenure().should('exist');
     }
 
+    checkTxtEmi(){
+        this.getEmi().should('exist')
+    }
+
     checkSliderAmt(amt){
         let initialStyle=null;
         this.getAmtSlider().invoke('attr','style').then((data)=>{
@@ -170,5 +174,32 @@ class LoanCalMenuPage{
             expect(initialStyle).not.to.eq(data);
         })
     } 
+
+    checkScaleForYearAndMonth(year){
+        let yearScale=null;
+        this.getScale().invoke('text').then((data)=>{
+            yearScale=data;
+            cy.log(`The Scale when we choose Year ${yearScale}`);
+        })
+        cy.get(this.monthLocator).find('label').eq(1).scrollIntoView().click();
+        this.getScale().invoke('text').then((data)=>{
+            cy.log(`The Scale when we choose Month ${data}`);
+            expect(yearScale).not.to.eq(data)
+        })
+    }
+
+    checkSliderEmi(emi){
+        let initialStyle=null;
+        this.getEmiSlider().invoke('attr','style').then((data)=>{
+            initialStyle=data;
+        })
+        cy.wait(1000);
+        this.enterEmi(emi);
+        cy.wait(1000);
+        this.getEmiSlider().invoke('attr','style').then((data)=>{
+            expect(initialStyle).not.to.eq(data);
+        })
+ 
+    }
 }
 export default new LoanCalMenuPage();

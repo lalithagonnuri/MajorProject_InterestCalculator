@@ -1,10 +1,22 @@
 const { defineConfig } = require("cypress");
 const xlsx=require('xlsx');
 const path = require('path');
+
  
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    charts: true,
+    reportPageTitle: 'Test Report',
+    embeddedScreenshots: true,
+    inlineAssets: true
+  },
+  video: true,
+
   e2e: {
     setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on)
       on('task', {
         writeExcel(data) {
           const worksheet = xlsx.utils.json_to_sheet(data);
