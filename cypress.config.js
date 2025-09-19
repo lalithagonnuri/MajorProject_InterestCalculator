@@ -1,6 +1,5 @@
 const { defineConfig } = require("cypress");
 const xlsx=require('xlsx');
-const fs = require('fs');
 const path = require('path');
 
 module.exports = defineConfig({

@@ -1,6 +1,7 @@
 {
     "price":5000000,
-    "interestRate":11.5,
+    "interestRate":6.5,
     "tenureYr":20,
-    "tenureMon":72
+    "fee":15000,
+    "emi":50000
 }
