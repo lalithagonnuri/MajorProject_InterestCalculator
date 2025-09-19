@@ -1,10 +1,9 @@
 import CarLoan from "../support/PageObjectsModel/CarLoan";
 import HomeLoan from "../support/PageObjectsModel/HomeLoan";
- 
- 
+import LoanCal from "../support/PageObjectsModel/LoanCalMenuPage";
 describe('EMI Calculator Automation Suite', () => {
   beforeEach(() => {
-    cy.visit('https://emicalculator.net/');
+    cy.visit('https://emicalculator.net');
     cy.fixture('carLoanData').as('data');
     cy.fixture('homeLoanData').as('homeData');
    
@@ -23,3 +22,39 @@ describe('EMI Calculator Automation Suite', () => {
     });
   })
 });
+
+describe("UI Check",()=>{
+    let commonData=null;
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+    });
+    before("Getting data from fixtures",()=>{
+        cy.fixture('CommonData.json').then((data)=>{
+            commonData=data
+        })
+    })
+    beforeEach("Visiting Page",()=>{
+        cy.visit('https://emicalculator.net');
+        LoanCal.clickMenu();
+    })
+    it("UI Check for EMI calculator",()=>{
+        LoanCal.clickEmi();
+        LoanCal.checkTxtAmt();
+        LoanCal.checkTxtInt();
+        LoanCal.checkTxtTenure();
+        LoanCal.checkTxtFee();
+        LoanCal.checkSliderAmt(commonData.price);
+        LoanCal.checkSliderInt(commonData.interestRate);
+        LoanCal.checkSliderFee(commonData.fee);
+        LoanCal.checkTenureSlider(commonData.tenureYr);
+    })
+    it("UI Check for Loan Tenure Calculator",()=>{
+        LoanCal.clickLoanTenureCal();
+        LoanCal.checkTxtAmt();
+        LoanCal.checkTxtInt();
+        LoanCal.checkTxtFee();
+        LoanCal.checkSliderAmt(commonData.price);
+        LoanCal.checkSliderInt(commonData.interestRate);
+        LoanCal.checkSliderFee(commonData.fee);
+    })
+})
