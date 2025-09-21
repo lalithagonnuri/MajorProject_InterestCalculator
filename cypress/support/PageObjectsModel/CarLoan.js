@@ -1,5 +1,8 @@
 import util from "./util";
 class CarLoan {
+    visit(){
+        cy.visit('https://emicalculator.net');
+    }
     navigateToCarLoanPage() {
         cy.get('#car-loan').click();
     }

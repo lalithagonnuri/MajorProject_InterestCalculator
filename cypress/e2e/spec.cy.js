@@ -34,7 +34,7 @@ describe("UI Check",()=>{
         })
     })
     beforeEach("Visiting Page",()=>{
-        cy.visit('https://emicalculator.net');
+        CarLoan.visit()
         LoanCal.clickMenu();
     })
     it("UI Check for EMI calculator",()=>{
