@@ -13,6 +13,10 @@ describe('EMI Calculator Automation Suite', () => {
     CarLoan.fillDetails(this.data.amount, this.data.interestRate, this.data.loanTenure);
     CarLoan.calculateEMI();
   });
+  it('Home Loan Emi Calculation', function(){
+    HomeLoan.navigateToHomeLoanPage();
+    HomeLoan.fillDetails(this.homeData.price,this.homeData.margin,this.homeData.amount, this.homeData.interestRate, this.homeData.loanTenure,this.homeData.fee);
+  })
 });
 
 describe("UI Check",()=>{

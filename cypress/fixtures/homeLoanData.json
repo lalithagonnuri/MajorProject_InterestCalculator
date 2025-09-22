@@ -1,0 +1,9 @@
+{
+    "amount":5000000,
+    "price":2500000,
+    "margin":30,
+    "fee":0.75,
+    "interestRate":9.5,
+    "loanTenure":1
+   
+}
