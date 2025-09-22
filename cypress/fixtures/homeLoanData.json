@@ -4,6 +4,6 @@
     "margin":30,
     "fee":0.75,
     "interestRate":9.5,
-    "loanTenure":1
+    "loanTenure":20
    
 }

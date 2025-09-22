@@ -1,6 +1,7 @@
 import CarLoan from "../support/PageObjectsModel/CarLoan";
 import HomeLoan from "../support/PageObjectsModel/HomeLoan";
 import LoanCal from "../support/PageObjectsModel/LoanCalMenuPage";
+import ExcelDataExtraction from "../support/PageObjectsModel/ExcelDataExtraction";
 describe('EMI Calculator Automation Suite', () => {
   beforeEach(() => {
     cy.visit('https://emicalculator.net');
@@ -16,6 +17,12 @@ describe('EMI Calculator Automation Suite', () => {
   it('Home Loan Emi Calculation', function(){
     HomeLoan.navigateToHomeLoanPage();
     HomeLoan.fillDetails(this.homeData.price,this.homeData.margin,this.homeData.amount, this.homeData.interestRate, this.homeData.loanTenure,this.homeData.fee);
+  })
+  it("Data Extraction and store in a excel file",function(){
+    ExcelDataExtraction.getYearlyEMIData(this.homeData.price,this.homeData.margin,this.homeData.amount, this.homeData.interestRate, this.homeData.loanTenure,this.homeData.fee);
+    cy.fixture('year_on_year.json').then((data) => {
+      cy.task('writeExcel', data);
+    });
   })
 });
 
