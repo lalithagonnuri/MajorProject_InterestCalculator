@@ -12,7 +12,7 @@ describe('EMI Calculator Automation Suite', () => {
   it('Car Loan EMI Calculation - First Month Breakdown', function () {
     CarLoan.navigateToCarLoanPage() ;
     CarLoan.fillDetails(this.data.amount, this.data.interestRate, this.data.loanTenure);
-    CarLoan.calculateEMI();
+    CarLoan.calculateAmount();
   });
   it('Home Loan Emi Calculation', function(){
     HomeLoan.navigateToHomeLoanPage();
